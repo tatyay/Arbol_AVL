@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Arbol AVL </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            div {
+                margin: auto;
+                width: 75%;
+                padding: 6px;
+                border: 1px solid #4CAF50;
+                font-family: "Verdana";
+
+            }
+            #para1 {
+                border-width:0.5;
+                border-color:red;
+                border-style: solod;
+            }
+        </style>
+    </head>
+    <body style="background-color:#d0e1e1">
+
+        <form action="Servlet1" method="POST">
+
+
+
+            <div style="text-align: center;padding-left:3;background-color:DEB887;width:500;border-width:1;border-color:red;border-style:solid;">
+                <h3>Entidad relaci&#243;n con arboles AVL</h3>
+            </div>
+
+            <br>
+            <div style="border-width:1;border-color:red;border-style:solid;width:500;">
+
+                <table cellpadding=3 cellspacing=0 border =0>
+
+                    <tr>
+                        <td>Nombre Primer &#225;rbol AVL(4 caracteres)</td>
+                        <td><input type="text" name="entidad_A" maxlength=5 size=10></td>
+                        <td><input id="generate_A" type="submit" name="action" value="Generar Arbol_A"></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>Digite C&#243;digo alumno(insertar o retirar)</td>
+                        <td><input type="text" name="codigo_A" maxlength=5 size=10></td>
+                    </tr>
+                    <tr>
+                        <td>Digite Nombre alumno</td>
+                        <td><input type="text" name="nombre_A" maxlength=5 size=10></td>
+                    </tr>
+                    <tr>
+                        <td><input id="add_A" type="submit" name="action" value="Insertar Alumno"></td>
+                        <td><input id="list_A" type="submit" name="action" value="Listar Alumnos"></td>
+                    </tr>
+                    <tr>
+                        <td><input id="remove_A" type="submit" name="action" value="Retirar Alumno"></td>
+                    </tr>
+                </table>
+            </div>	
+            
+              <!---------------------------------------------------------------------------->
+            <div id="result" ></div>           
+
+            <div style="border-width:1;border-color:green;border-style:solid;width:500;">
+                <table cellpadding=3 cellspacing=0 border =0>
+                    <tr>
+                        <td>Nombre Segundo &#225;rbol AVL(4 caracteres)</td>
+                        <td><input type="text" id="entidad_M" maxlength=5 size=10></td>
+                            <td><input id="generate_M" type="submit" name="action" value="Generar Arbol_M"></td>
+                    </tr>
+
+
+                    <td>&nbsp;</td></tr>
+
+                    <tr>
+                        <td>Digite C&#243;digo materia(insertar o retirar) </td>
+                        <td><input type="text" id="codigo_M" maxlength=5 size=10></td>
+                    </tr>
+
+                    <tr>
+                        <td>Digite Nombre materia <td><input type="text" id="nombre_M" maxlength=5 size=10></td>
+                    </tr>
+
+                    <tr>
+                        <td><input id="add_M" type="submit" name="action" value="Insertar Materia"></td>
+                        <td><input id="list_M" type="submit" name="action" value="Listar Materias"></td>
+                    </tr>
+
+                    <tr>
+                        <td><input id="remove_M" type="submit" name="action" value="Retirar Materia"></td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                </table>
+            </div>
+            <br>
+
+            <!--------------------------------------------------------------------------->
+
+            <div style="font-size:18;font-weight:bold;border-width:1;border-color:green;border-style:solid;width:500;">
+                Digite en cada l&#237;nea CodAlu, CodMat o CodMat, CodAlu para consultar</div>	
+            <div style="border-width:1;border-color:green;border-style:solid;width:500;">
+                <table>
+                    <tr><td>
+                            Nombre entidad alumnos <input type="text" name="nombre_E_A" 
+                                                         maxlength=5 size=10>
+                        </td></tr>
+                    <tr><td>
+                            Nombre entidad materias <input type="text" name="nombre_E_M" 
+                                                          maxlength=5 size=10>
+                        </td></tr>
+                    <tr><td>
+                            <textarea rows="4" cols="50" id="probarentidad">
+                            </textarea>
+                        </td></tr>
+                    <tr><td>
+                            <input id="list_M_A" type="submit" value="Materias X Alumno" name="action">
+                        </td></tr>
+                    <tr><td>
+                            <input id="list_A_M" type="submit" value="Alumnos X Materia" name="action">
+                        </td></tr>
+                    <tr><td>
+                        </td></tr>
+                </table>
+            </div>
+        </form>
+    </body>
+</html>
