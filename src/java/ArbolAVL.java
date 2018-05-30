@@ -10,17 +10,33 @@
  */
 public class ArbolAVL {
     private NodoAVL root;
-    
-    public void insert(Comparable x){
-        root=insertar(x,root);
+    public String getInorden(){
+        return InordenAVL(root);
+    }
+    public String InordenAVL(NodoAVL Nodo) {
+        String temp = "";
+        if (Nodo != null){
+            temp+= InordenAVL(Nodo.izq);
+            temp+= "<tr>";
+            temp+= "<td>"+(calcularAltura(Nodo.izq)-calcularAltura(Nodo.der))+"</td>";
+            temp+= "<td>"+Nodo.valor+"</td>";
+            temp+= "<td>"+Nodo.nombre+"</td>";
+            temp+= "</tr>";
+            temp+=InordenAVL(Nodo.der);
+        }
+        return temp;
     }
     
-    private NodoAVL insertar(Comparable x, NodoAVL t){
+    public void insert(Comparable x, String name){
+        root=insertar(x,name,root);
+    }
+    
+    private NodoAVL insertar(Comparable x, String name, NodoAVL t){
         if(t == null){
-            t= new NodoAVL(x);
+            t= new NodoAVL(x,name);
         }
         else if (x.compareTo(t.valor)<0){
-            t.izq=insertar(x, t.izq);
+            t.izq=insertar(x, name, t.izq);
             if(altura(t.izq)-altura(t.der)==2){
                 if(x.compareTo(t.izq.valor)<0){
                     t=rotacionHijoIzquierdo(t); // CASO 1
@@ -31,7 +47,7 @@ public class ArbolAVL {
             }
         }
         else if(x.compareTo(t.valor)>0){
-            t.der=insertar(x,t.der);
+            t.der=insertar(x,name,t.der);
             if(altura(t.der)-altura(t.izq)==2){
                 if(x.compareTo(t.der.valor)>0){
                     t=rotacionHijoDerecho(t);//CASO 4
@@ -41,7 +57,7 @@ public class ArbolAVL {
                 }
             }
         }
-        return null;
+        return t;
     }
 
     private int altura(NodoAVL t) {
