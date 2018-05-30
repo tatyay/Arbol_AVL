@@ -94,8 +94,7 @@ public class Servlet1 extends HttpServlet {
                     break;
                 case "Retirar Alumno":
                     if(arboles_A.containsKey(ent_AA)){
-                        /*%%%%%%%%%%%%%%%%%%% AÑADIR CODIGO DE RETIRAR AQUI %%%%%%%%%%%%%%%%%%%%%*/
-                        //arboles_A.get(ent_AA).retirar?
+                        arboles_M.get(ent_AA).retirar(cod_AA);
                         resul += "<h2>EL ESTUDIANTE "+name_AA+" HA SIDO REMOVIDO DEL ARBOL</h2>";
                     }else{
                         resul += "<h2>EL ARBOL <u>"+ent_AA+"</u> NO EXISTE</h2>";
@@ -122,7 +121,7 @@ public class Servlet1 extends HttpServlet {
                 case "Generar Arbol_M":
                     if(!arboles_M.containsKey(ent_AM)){
                         arboles_M.put(ent_AM, new ArbolAVL());
-                        resul += "<h2>ARBOL "+ent_AM+" DE MATERIAS CREADO</h2>";
+                        resul += "<h2>ARBOL <u>"+ent_AM+"</u> DE MATERIAS CREADO</h2>";
                     }else{
                         resul += "<h2>EL ARBOL <u>"+ent_AM+"</u> YA EXISTE</h2>";
                     }
@@ -130,16 +129,15 @@ public class Servlet1 extends HttpServlet {
                 case "Insertar Materia":
                     if(arboles_M.containsKey(ent_AM)){
                         arboles_M.get(ent_AM).insert(cod_AM, name_AM);
-                        resul += "<h2>LA MATERIA "+name_AM+" HA SIDO AGREGADA CON EXITO</h2>";
+                        resul += "<h2>LA MATERIA <u>"+name_AM+"</u> HA SIDO AGREGADA CON EXITO</h2>";
                     }else{
                         resul += "<h2>EL ARBOL <u>"+ent_AM+"</u> NO EXISTE</h2>";
                     }
                     break;
                 case "Retirar Materia":
                     if(arboles_M.containsKey(ent_AM)){
-                        /*%%%%%%%%%%%%%%%%%%% AÑADIR CODIGO DE RETIRAR AQUI %%%%%%%%%%%%%%%%%%%%%*/
-                        //arboles_M.get(ent_AM).retirar?
-                        resul += "<h2>LA MATERIA "+name_AM+" HA SIDO REMOVIDA DEL ARBOL</h2>";
+                        arboles_M.get(ent_AM).retirar(cod_AM);
+                        resul += "<h2>LA MATERIA <u>"+name_AM+"</u> HA SIDO REMOVIDA DEL ARBOL</h2>";
                     }else{
                         resul += "<h2>EL ARBOL <u>"+ent_AM+"</u> NO EXISTE</h2>";
                     }
@@ -147,22 +145,26 @@ public class Servlet1 extends HttpServlet {
                 case "Listar Materias":
                     if(arboles_M.containsKey(ent_AM)){
                         resul+="<h2>MATERIAS DE LA ENTIDAD "+ent_AM+"</h2>";
-                        resul+="<br>";   
-                        resul+= "</div>";
+                       resul+= "</div>";
+                        resul+="<br>";
                         resul+= "<div style=\"text-align: center;border: 1px solid #4CAF50;width: 75%;margin: auto;\">";
+                        resul+="<br>";
                         resul+="<table align=center border=\"1\" cellpadding=\"3\" cellspacing=\"0\">";
                         resul+="<tr>";
                         resul+="<td>Balance</td><td>Codigo</td><td>Nombre</td>";
                         resul+="</tr>";
                         resul+=arboles_M.get(ent_AM).getInorden();
                         resul+="</table>";
+                        resul+="<br>";
                     }else{
                         resul += "<h2>EL ARBOL <u>"+ent_AM+"</u> NO EXISTE</h2>";
                     }
                     break;
                 case "Materias X Alumno": 
+                    resul+="";
                     break;
                 case "Alumnos X Materia": 
+                    resul+="";
                     break;
             }
             resul += "</div>";

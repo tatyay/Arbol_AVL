@@ -27,6 +27,10 @@ public class ArbolAVL {
         return temp;
     }
     
+    public void retirar(String Cod){
+        /*%%%%%%%%%%%%%%%%%%% AÑADIR CODIGO DE RETIRAR AQUI %%%%%%%%%%%%%%%%%%%%%*/
+        
+    }
     public void insert(Comparable x, String name){
         root=insertar(x,name,root);
     }
